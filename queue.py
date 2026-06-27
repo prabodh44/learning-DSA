@@ -35,6 +35,9 @@ class Queue:
             
     """ dequeue method
     removes the first item from the queue and increases the head position by 1
+    
+    
+    
     """
     def dequeue(self):
         try:
@@ -53,7 +56,6 @@ class Queue:
             print("The queue is empty")
     
     def is_empty(self):
-        return self.head == self.tail == -1
         if self.head == self.tail == -1:
             raise IndexError("The Queue is empty")
             
