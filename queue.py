@@ -42,7 +42,7 @@ class Queue:
     def dequeue(self):
         try:
             if not self.is_empty():
-                if self.head == self.tail == 0:
+                if self.head == self.tail:
                     temp = self.queue[self.tail]
                     self.head = -1
                     self.tail = -1
