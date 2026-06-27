@@ -60,10 +60,12 @@ class Calculator:
     
     def undo(self):
         result = pop(self.history)
+        self.result = peek(self.history)
         if result == False:
             print("Nothing to undo")
             return
         print(f"Undo result: {result}")
+        print(f"Previous value of result: {self.result}")
 
     def show_history(self):
         show(self.history)
