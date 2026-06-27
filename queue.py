@@ -16,60 +16,48 @@ class Queue:
     adds an item to the end of the queue
     """
     def enqueue(self, item):
-        try:
-            if not self.is_full():
-                if self.head == -1:
-                    self.head = 0
-                    self.tail = 0
-                    self.queue[self.tail] = item
-                else:
-                    self.tail += 1
-                    self.queue[self.tail] = item
-                    
-                print(f"Item added is {item}")
-                print(f"head: {self.head}")
-                print(f"tail: {self.tail}")
-                
-        except IndexError:
-            print("The queue is full")
+        if self.is_full():
+            return False
+            
+        if self.head == -1:
+            self.head = 0
+            self.tail = 0
+            self.queue[self.tail] = item
+        else:
+            self.tail += 1
+            self.queue[self.tail] = item
+
             
     """ dequeue method
     removes the first item from the queue and increases the head position by 1
-    
-    
-    
     """
     def dequeue(self):
-        try:
-            if not self.is_empty():
-                if self.head == self.tail:
-                    temp = self.queue[self.tail]
-                    self.head = -1
-                    self.tail = -1
-                    return temp
-                
-                else:
-                    temp = self.queue[self.head]
-                    self.head += 1
-                    return temp
-        except IndexError:
-            print("The queue is empty")
-    
+        if self.is_empty():
+            return False
+            
+        if self.head == self.tail:
+            temp = self.queue[self.tail]
+            self.head = -1
+            self.tail = -1
+            return temp
+        else:
+            temp = self.queue[self.head]
+            self.head += 1
+            return temp
+
+
     def is_empty(self):
-        if self.head == self.tail == -1:
-            raise IndexError("The Queue is empty")
+        return self.head == self.tail == -1
             
     def is_full(self):
-        if self.tail == self.size - 1:
-            raise IndexError("The Queue is full")
+        return self.tail == self.size - 1
     
-    def show(self):
-        print(self.queue)
-        
     """ display_queue method
     displays all the items of the queue
     """
     def display_queue(self):
+        if self.is_empty():
+            return False
         for i in range(self.head, self.tail + 1):
             print(self.queue[i], end=" ")
 
