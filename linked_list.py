@@ -40,6 +40,24 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        
+        # Case 1: If the linked list is empty
+        if self.head is None:
+            self.head = new_node
+            return
+    
+        # Case 2: The linked list is not empty
+        # we need to find the last node
+        last = self.head
+        while(last.next):
+            last = last.next
+            # TODO: understand??
+        
+        last.next = new_node
+
+
 
 if __name__ == "__main__":
     # create linked list
@@ -83,4 +101,8 @@ if __name__ == "__main__":
     # print("****** AFTER NEW NODES INSERTION *******")
     
     # linked_list.traverse_linked_list()
+
+
+    linked_list.insert_at_end("Last Item")
+    linked_list.traverse_linked_list()
     
