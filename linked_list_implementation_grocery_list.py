@@ -66,9 +66,23 @@ class LinkedList:
             last = last.next
         # when the loop end var last stores the last value
         last.next = new_node
+# Linked List implementation ends
+
+def show_menu():
+    print("****** Grocery List Inventory Menu ******")
+    print("1. Create a grocery list with items")
+    print("2. Add item to the front of the list")
+    print("3. Add item to the back of the list")
+    print("4. Display Grocery List")
+    print("5. Exit")
 
 if __name__ == "__main__":
     grocery_list = LinkedList()
+    
+    while(True):
+        show_menu()
+        option = int(input("Enter your choice (1-5)"))
+        
 
     first_item = Node("Milk")
     second_item = Node("Eggs")
